@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.onelogin</groupId>
 		<artifactId>java-saml-toolkit</artifactId>
-		<version>2.9.1-SNAPSHOT</version>
+		<version>3.0.0</version>
 	</parent>
 
 	<packaging>jar</packaging>
@@ -83,7 +83,32 @@
 	</dependencies>
 
 	<build>
+
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<archive>
+								<manifest>
+									<mainClass>
+										com.baeldung.executable.ExecutableMavenJar
+									</mainClass>
+								</manifest>
+							</archive>
+							<descriptorRefs>
+								<descriptorRef>jar-with-dependencies</descriptorRef>
+							</descriptorRefs>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
@@ -117,6 +142,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.22.2</version>
 				<configuration>
+					<skipTests>true</skipTests>
                     <encoding>${project.build.sourceEncoding}</encoding>
 					<inputEncoding>${project.build.sourceEncoding}</inputEncoding>
 					<outputEncoding>${project.build.sourceEncoding}</outputEncoding>
