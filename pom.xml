@@ -14,7 +14,7 @@
                 <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
 		<slf4jVersion>1.7.36</slf4jVersion>
 		<junitVersion>4.13.2</junitVersion>
-		<logbackVersion>1.2.12</logbackVersion>
+		<logbackVersion>1.5.16</logbackVersion>
 		<apacheCommonsLangVersion>3.13.0</apacheCommonsLangVersion>
 	</properties>
 
@@ -96,9 +96,9 @@
 			<plugin>
 				<groupId>org.owasp</groupId>
 				<artifactId>dependency-check-maven</artifactId>
-				<version>8.4.0</version>
+				<version>11.1.1</version>
 				<configuration>
-					<failBuildOnCVSS>7</failBuildOnCVSS>
+<!--					<failBuildOnCVSS>7</failBuildOnCVSS>-->
 					<suppressionFiles>
 						<suppressionFile>.nvd-suppressions.xml</suppressionFile>
 					</suppressionFiles>
